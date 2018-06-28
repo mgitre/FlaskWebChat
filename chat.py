@@ -10,9 +10,6 @@ def view():
         chat = request.form["user_input"]
         datetime = time.strftime('%m/%d %I:%M %p')
         message = str(request.remote_addr)+' ('+datetime+'): '+chat+'\n'
-        latest = open('latest.txt','w')
-        latest.write(message)
-        latest.close()
         stuff = open('all.txt','a')
         stuff.write(message)
         stuff.close()
@@ -33,9 +30,6 @@ def view():
 def chat(chat: str):
     datetime = time.strftime('%m/%d %I:%M %p')
     message = str(request.remote_addr)+' ('+datetime+'): '+chat+'\n'
-    latest = open('latest.txt','w')
-    latest.write(message)
-    latest.close()
     stuff = open('all.txt','a')
     stuff.write(message)
     stuff.close()
